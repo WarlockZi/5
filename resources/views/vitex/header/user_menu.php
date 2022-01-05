@@ -5,7 +5,7 @@
         Вход
         <? if (!isset($user)): ?>
             <ul class="guest-menu__menu">
-                <a href="/user/login">Войти</a>
+                <a href="/login">Войти</a>
                 <a href="/user/register">Регистрация</a>
                 <a href="/user/returnpass">Забыл пароль</a>
             </ul>
@@ -22,6 +22,7 @@
         <div class="user-menu__menu">
             <a href="/user/edit">Изменить свой профиль</a>
             <a href="/user/cabinet">Личный кабинет</a>
+
 
             <? if (in_array('1', $user['rights']) || SU): ?>
 

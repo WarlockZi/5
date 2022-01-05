@@ -21,6 +21,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/admin', function(){
+
+Route::get('/admin/{path?}', function(){
     return view('admin.admin');
-})->name('admin');
+})
+	->name('admin')
+	->where(['path'=>'.*']);

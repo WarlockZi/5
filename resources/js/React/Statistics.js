@@ -2,12 +2,12 @@ import React from 'react';
 
 
 function Statistics (){
+  const stat = {
+    color:'blue',
+    padding:'10px'
+  }
   return (
-    <>
-      <br/>
-      <br/>
-      <div className="stat">Cnfnbcnbrf </div>
-    </>
+      <div style={stat} >Статистика </div>
   )
 }
 export default Statistics
