@@ -1,0 +1,57 @@
+@import "../var";
+
+
+
+/// Test edit menu Add test/path button
+.test-edit-menu__add-bttn {
+  position: relative;
+  color: #fff;
+  font-weight: 600;
+  padding: 8px 15px;
+  margin: 15px 0 30px;
+  white-space: nowrap;
+  cursor: pointer;
+  background-color: #1bbc9b !important;
+  box-shadow: 0 2px 4px 0 #316358;
+  transition: box-shadow 100ms;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+
+  &:hover {
+    box-shadow: none;
+  }
+
+  &:hover > .test-edit-menu__add-bttn-wrap {
+    opacity: 1;
+    top: 100%;
+  }
+}
+
+.test-edit-menu__add-bttn-wrap {
+  display: flex;
+  position: absolute;
+  flex-flow: column;
+  top: -7px;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  background-color: white;
+  color: black;
+  box-shadow: 0 2px 4px 0 #316358;
+  transition: opacity 400ms, top 200ms;
+}
+
+.test-edit-menu__add-bttn-test,
+.test-edit-menu__add-bttn-path {
+  display: flex;
+  padding: 5px;
+  font-size: .8rem;
+  color: #000;
+
+  &:hover {
+    background-color: $color-hover-gray;
+  }
+}
+
+

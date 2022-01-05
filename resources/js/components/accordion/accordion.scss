@@ -1,0 +1,306 @@
+@import '../../mixin_media';
+@import './partials/variables';
+@import "../../Admin/layout/sidebar/sidebar";
+// colors, fonts etc...
+@import './partials/layout'; // responsive grid and media queries
+
+.accordion {
+  min-width: 200px;
+  display: flex;
+  flex-flow: column;
+
+
+  @include _800 {
+    max-width: 100%;
+  }
+
+  .update {
+    content: 'F19B9';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    padding: 8px;
+    border: 1px solid #4d5158;
+    border-radius: 5px;
+    background: url("../icons/edit.svg") no-repeat;
+
+
+    &:after {
+      display: none;
+    }
+
+    &:before {
+      display: none;
+    }
+  }
+
+  ul {
+    /* by default hide all sub menus */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .1s;
+  }
+
+  li {
+    user-select: none;
+    position: relative;
+  }
+
+  input[type=checkbox] {
+    position: absolute;
+    opacity: 0;
+  }
+
+  label, a {
+    position: relative;
+    display: block;
+    // first level text
+    padding: $item-padding-S $item-padding-S $item-padding-S ($item-padding-S * 3) + 25px;
+    color: $color-3;
+    font-size: .7rem;
+    cursor: pointer;
+  }
+
+  .current {
+    border-left: #97ffea 4px solid;
+    color: #97ffea;
+  }
+
+  .level1 {
+    background: red;
+
+
+    &:hover {
+      background: tint($color-level-1, 3%);
+    }
+  }
+
+  .level2 {
+    background: $color-level-2;
+
+    &:hover {
+      background: tint($color-level-2, 3%);
+    }
+  }
+
+  .level3 {
+    background: $color-level-3;
+
+    &:hover {
+      background: tint($color-level-3, 3%);
+    }
+  }
+
+  label::before, label::after, a::after {
+    /* icons */
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  label {
+    &::before {
+      background-image: url(./img/cd-icons.svg);
+      background-repeat: no-repeat;
+    }
+
+    &::before {
+      /* arrow icon */
+      left: $item-padding-S;
+      background-position: 0 0;
+      transform: translateY(-50%) rotate(-90deg);
+    }
+
+  }
+
+
+  input[type=checkbox]:checked + label::before {
+    /* rotate arrow */
+    transform: translateY(-50%);
+    transition: transform 90ms;
+  }
+
+  input[type=checkbox]:checked + label::after {
+    /*change path icon*/
+    background-position: -32px 0;
+  }
+
+  input[type=checkbox]:checked + label + ul,
+  input[type=checkbox]:checked + label:nth-of-type(n) + ul {
+    /* use label:nth-of-type(n) to fix a bug on safari (<= 8.0.8) with multiple adjacent-sibling selectors*/
+    display: block;
+    //height: auto;
+    overflow: hidden;
+  }
+
+  ul label,
+  ul a {
+    //background: darken($color-1, 10%);
+    box-shadow: inset 0 -1px darken($color-1, 5%);
+    padding-left: ($item-padding-S * 4) + 30px;
+
+    .no-touch &:hover {
+      background: darken($color-1, 7%);
+    }
+  }
+
+  > li:last-of-type > label,
+  > li:last-of-type > a,
+  > li > ul > li:last-of-type label,
+  > li > ul > li:last-of-type a {
+    box-shadow: none;
+  }
+
+  ul label::before {
+    left: $item-padding-S * 2;
+  }
+
+  ul label::after,
+  ul a::after {
+    left: ($item-padding-S * 3) + 16px;
+  }
+
+  ul ul label,
+  ul ul a {
+    padding-left: ($item-padding-S * 5) + 40px;
+  }
+
+  ul ul label::before {
+    left: $item-padding-S * 3;
+  }
+
+  ul ul label::after,
+  ul ul a::after {
+    left: ($item-padding-S * 4) + 10px;
+  }
+
+  ul ul ul label,
+  ul ul ul a {
+    padding-left: ($item-padding-S * 6) + 40px;
+  }
+
+  ul ul ul label::before {
+    left: $item-padding-S * 4;
+  }
+
+  ul ul ul label::after,
+  ul ul ul a::after {
+    left: ($item-padding-S * 5) + 10px;
+  }
+
+  @include MQ(M) {
+    label, a {
+      padding: $item-padding-M $item-padding-M $item-padding-M ($item-padding-M * 3) + 20px;
+      font-size: .8rem;
+    }
+
+    label::before {
+      left: $item-padding-M;
+    }
+
+    label::after {
+      left: ($item-padding-M * 2) + 10px;
+    }
+
+    ul label,
+    ul a {
+      padding-left: ($item-padding-M * 4) + 20px;
+    }
+
+    ul label::before {
+      left: $item-padding-M * 2;
+    }
+
+    ul label::after,
+    ul a::after {
+      left: ($item-padding-M * 3) + 15px;
+    }
+
+    ul ul label,
+    ul ul a {
+      padding-left: ($item-padding-M * 5) + 40px;
+    }
+
+    ul ul label::before {
+      left: $item-padding-M * 3;
+    }
+
+    ul ul label::after,
+    ul ul a::after {
+      left: ($item-padding-M * 4) + 10px;
+    }
+
+    ul ul ul label,
+    ul ul ul a {
+      padding-left: ($item-padding-M * 6) + 100px;
+    }
+
+    ul ul ul label::before {
+      left: $item-padding-M * 4;
+    }
+
+    ul ul ul label::after,
+    ul ul ul a::after {
+      left: ($item-padding-M * 5) + 5px;
+    }
+  }
+
+  &.animated label::before {
+    /* this class is used if you're using jquery to animate the accordion */
+    transition: transform .3s;
+  }
+
+}
+
+.test-edit__accordion {
+  max-width: 200px;
+  @include _800 {
+    min-width: 100%;
+  }
+}
+
+.test-edit__accordion .accordion {
+
+  a::after {
+    /* image icon */
+    left: $item-padding-S * 2;
+    background: url(./img/cd-icons.svg) no-repeat -48px 0;
+  }
+
+  label {
+    &::before, &::after {
+      background-image: url(./img/cd-icons.svg);
+      background-repeat: no-repeat;
+    }
+
+    &::before {
+      /* arrow icon */
+      left: $item-padding-S;
+      background-position: 0 0;
+      transform: translateY(-50%) rotate(-90deg);
+    }
+
+    &::after {
+      /* folder icons */
+      left: ($item-padding-S * 2) + 13px;
+      background-position: -16px 0;
+    }
+  }
+}
+
+.admin-layout__sidebar.accordion {
+
+
+  label {
+    &::before {
+      /* arrow icon */
+      left: initial;
+      right: 12px;
+    }
+  }
+}

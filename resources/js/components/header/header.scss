@@ -1,0 +1,48 @@
+@import "logo";
+@import "location";
+@import "phone";
+@import "header-catalog-menu";
+@import "user_menu";
+
+header {
+  display: flex;
+  flex: 0 0 auto;
+  background: #fff;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.header {
+  display: flex;
+  position: relative;
+  align-items: center;
+  margin: 10px 20px;
+  justify-content: space-between;
+  max-width: 1310px;
+  //width: 100%;
+  @include _600 {
+    padding: 0;
+  }
+}
+
+.header__info {
+  display: flex;
+  position: relative;
+  align-items: center;
+  max-width: 1310px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  @include _600 {
+    padding: 0;
+  }
+
+}
+
+
+
+
+
+
+

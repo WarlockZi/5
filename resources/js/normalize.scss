@@ -1,0 +1,64 @@
+@import "mixin_media";
+
+//@font-face {
+//  font-family: "RobotoMedium";
+//  font-style: normal;
+//  font-weight: 500;
+//  src: url("./font/RobotoMedium/RobotoMedium.woff") format("woff"),
+//  url("/resources/js/font/RobotoMedium/RobotoMedium.woff") format("truetype");
+//}
+
+html {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+
+body {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  margin: 0;
+  font-family: "RobotoMedium", sans-serif;
+  /*скрыть дерганье страницы в появлении полосы прокрутки*/
+  padding: 0 calc(0px - (100vw - 100%)) 0 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+
+  @include _500 {
+    padding: 0;
+  }
+
+}
+
+
+p {
+  letter-spacing: 1px;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+input,
+textarea,
+textarea:focus,
+.button:focus {
+  outline: none;
+}
+
+.flex1 {
+  display: flex !important;
+}
+
+.none {
+  display: none;
+}
