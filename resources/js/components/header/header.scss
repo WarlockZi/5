@@ -14,6 +14,7 @@ header {
 }
 
 
+
 .header {
   display: flex;
   position: relative;
@@ -21,6 +22,7 @@ header {
   margin: 10px 20px;
   justify-content: space-between;
   max-width: 1310px;
+  height: 50px;
   //width: 100%;
   @include _600 {
     padding: 0;

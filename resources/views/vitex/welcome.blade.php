@@ -4,7 +4,13 @@
   <?php include resource_path('views/vitex/header/header.php')?>
 @endsection
 
+
+@section('header__catalog')
+  <?php include resource_path('views/vitex/header/catalog_menu.php')?>
+@endsection
+
 @section('content')
+
   <div class="banner gloves">
     <div class="banner__text">
       <div class="banner__container right">

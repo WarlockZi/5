@@ -17,6 +17,7 @@
 .logo_square {
   height: 100%;
   margin-right: 5px;
+  width: 30px;
 
   @include _800 {
     display: none;
@@ -30,7 +31,7 @@
 .header {
 
   .logo_vitex {
-    height: 33px;
+    height: 30px;
     @include _600 {
       height: 25px;
     }

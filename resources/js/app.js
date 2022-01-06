@@ -12,7 +12,7 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-require('./React/App');
+// require('./React/App');
 
 // import './Main/main'
 
