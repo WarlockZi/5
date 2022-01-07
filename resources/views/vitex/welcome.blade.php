@@ -1,4 +1,4 @@
-@extends('layouts.vitex')
+@extends('vitex.vitex')
 
 @section('header')
   <?php include resource_path('views/vitex/header/header.php')?>

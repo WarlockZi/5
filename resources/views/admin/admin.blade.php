@@ -11,14 +11,14 @@
     <title>CRM</title>
 
     <!-- Scripts -->
-    <script src="{{ mix('js/react/react.js') }}" defer></script>
+    <script src="{{ mix('react.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ mix('css/react/react.css') }}" rel="stylesheet">
+    <link href="{{ mix('react.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="root"></div>

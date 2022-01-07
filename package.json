@@ -29,6 +29,15 @@
         "webpack-livereload-plugin": "^1.2.0"
     },
     "dependencies": {
-        "react-router-dom": "^6.2.1"
+        "@emotion/react": "^11.7.1",
+        "@emotion/styled": "^11.6.0",
+        "@mui/material": "^5.2.7",
+        "react-router-dom": "^6.2.1",
+        "styled-components": "^5.3.3"
+    },
+
+    "resolutions": {
+        "styled-components": "^5"
     }
+
 }

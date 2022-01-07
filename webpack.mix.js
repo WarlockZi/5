@@ -2,18 +2,21 @@ const mix = require('laravel-mix');
 
 mix
 
-  .js('resources/js/app.js', 'public/js')
-  // .js('resources/js/react.js', 'public/js/react')
+  .js('resources/js/Main/app.js', 'public')
+  .js('resources/js/React/react.js', 'public')
+  .js('resources/js/Auth/auth.js', 'public')
 
   .react()
 
   .sass('resources/sass/app.scss',
-    'public/css',{
+    'public',{
     })
-  // .sass('resources/sass/react.scss',
-  // 'public/css/react',{
-  // })
-
+  .sass('resources/sass/react.scss',
+  'public',{
+  })
+  .sass('resources/sass/auth.scss',
+    'public',{
+    })
   .sourceMaps()
 
 // это для source-map
@@ -27,3 +30,4 @@ if ( ! mix.inProduction()) {
 mix.browserSync({
   proxy: 'localhost:8000'
 });
+

@@ -1,25 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter as Router, Outlet, Link, Route, Routes, useLocation} from "react-router-dom/index";
+import {BrowserRouter as Router, Link, Outlet, Route, Routes, useLocation} from "react-router-dom/index";
 import Statistics from "./Statistics";
 
-function App() {
-  const container = {
-    color: 'green',
-    padding: '10px',
-    margin: '0 auto',
-    display: 'flex',
-    flexFlow: 'column',
-  }
+import { Accordion, TextField,Autocomplete,Button} from '@mui/material';
 
-  const a = {
-    color: 'grey',
-    padding: '10px',
-  }
+function App() {
+
+  const options = [
+    { label: 'The Godfather', id: 1 },
+    { label: 'Pulp Fiction', id: 2 },
+  ];
+
+
+
 
   return (
     <>
       <Nav/>
+      <Button variant="contained">Hello World</Button>
+      <Autocomplete
+        disablePortal
+        id="combo-box-demo"
+        options={options}
+        sx={{ width: 300 }}
+        renderInput={(params) => <TextField {...params} label="Movie" />}
+      />
+      <Accordion
+        children={''}
+      />
       <Routes>
         <Route path="admin" element={<Admin/>}>
           <Route path="statistics" element={<Statistics/>}/>
