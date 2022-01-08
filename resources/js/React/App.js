@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Link, Outlet, Route, Routes, useLocation} from "react-router-dom/index";
 import Statistics from "./Statistics";
 
-import { Accordion, TextField,Autocomplete,Button} from '@mui/material';
+import { TextField,Autocomplete,Button} from '@mui/material';
+import Accordion from './components/Accordion'
 
 function App() {
 
@@ -26,9 +27,7 @@ function App() {
         sx={{ width: 300 }}
         renderInput={(params) => <TextField {...params} label="Movie" />}
       />
-      <Accordion
-        children={''}
-      />
+
       <Routes>
         <Route path="admin" element={<Admin/>}>
           <Route path="statistics" element={<Statistics/>}/>
