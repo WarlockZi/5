@@ -14,17 +14,16 @@ function App() {
   ];
 
 
-
-
   return (
     <>
       <Nav/>
       <Button variant="contained">Hello World</Button>
+      <Accordion/>
       <Autocomplete
         disablePortal
         id="combo-box-demo"
         options={options}
-        sx={{ width: 300 }}
+        sx={{ m: 2, width: 300 }}
         renderInput={(params) => <TextField {...params} label="Movie" />}
       />
 
@@ -78,15 +77,10 @@ const Nav = () => {
     </>
   )
 }
+
 const TestEdit = () => {
-  const stat = {
-    color: 'blue',
-    padding: '10px'
-  }
   return (
-    <>
       <div>test edit</div>
-    </>
   )
 }
 
@@ -103,17 +97,13 @@ const Test = () => {
     </>
   )
 }
+
 const Admin = () => {
-  const stat = {
-    color: 'red',
-    padding: '10px'
-  }
   return (
-    <>
       <Outlet/>
-    </>
   )
 }
+
 const Home = () => {
   const stat = {
     color: 'red',
