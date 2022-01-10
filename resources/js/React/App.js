@@ -5,8 +5,9 @@ import Statistics from "./Statistics";
 
 import { TextField,Autocomplete,Button} from '@mui/material';
 import Accordion from './components/Accordion'
+import AccordionList from './components/AccordionList'
 
-function App() {
+export default  function App() {
 
   const options = [
     { label: 'The Godfather', id: 1 },
@@ -16,8 +17,10 @@ function App() {
 
   return (
     <>
+
       <Nav/>
       <Button variant="contained">Hello World</Button>
+      {/*<AccordionList/>*/}
       <Accordion/>
       <Autocomplete
         disablePortal
@@ -40,8 +43,6 @@ function App() {
     </>
   )
 }
-
-export default App;
 
 
 const Nav = () => {

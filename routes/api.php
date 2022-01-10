@@ -32,7 +32,7 @@ Route::prefix('v1')->group(function () {
 		return response()->json($users);
 	});
 
-	Route::get('/tests-tree', function (Request $request) {
+	Route::get('/tests-tree', function () {
 		$tests = Test::with('test')
 
 			->get();

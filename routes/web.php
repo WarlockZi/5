@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-
+use App\Models\Test;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +15,9 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', function () {
-    return view('vitex.welcome');
+//	$test = Test::with('test')->get();
+	$test = null;
+    return view('vitex.welcome')->with(['test'=>$test]);
 })->name('welcome');
 
 Auth::routes();

@@ -5,9 +5,9 @@ import NoSsr from '@mui/base/NoSsr';
 
 export default function Accordion(props) {
 
-  const Test = (props)=>{
-    onclick = pathClick
-    return(
+  const Test = (props) => {
+
+    return (
       <div data-level={props.ind}></div>
     )
   }
@@ -33,34 +33,54 @@ export default function Accordion(props) {
 `;
 
 
-
-  const pathClick =(e)=>{
+  const pathClick = (e) => {
     let parent = e.target.parentNode.tagName
     alert(parent)
   }
 
-  const [users, setUsers] = useState([]);
+  const [tests, setTests] = useState([]);
+  const [api, setApi] = useState([]);
+
+  const apiFetch = async () => {
+
+    const res = await window.axios.get('https://jsonplaceholder.typicode.com/posts')
+    await setTests(res.data.json())
+    console.log(res.data.json())
+
+    // fetch('https://jsonplaceholder.typicode.com/posts')
+    //   .then(response => response.json())
+    //   .then(
+    //     json => {
+    //       setApi(json)
+    //     }
+    //   )
+  }
+
 
   const fetchData = async () => {
     let url = 'http://localhost:8000/api/v1/tests-tree';
-    const restult = await window.axios.get(url)
-    await setUsers(restult.data)
+    const res = await window.axios.get(url)
+    await setTests(res.data)
+
+
   }
   useEffect(() => {
     fetchData()
+    apiFetch()
   }, [])
 
-  const userList = users.map((i,ind) => {
+  const userList = tests.map((i, ind) => {
       return i.isTest
-        ?<Test key={i.id} bgcolor={'blue'} ind = {ind}>{i.test_name}</Test>
-        :<Path
-          onclick = 'pathClick'
+        ? <Test key={i.id} bgcolor={'blue'} ind={ind}>{i.test_name}</Test>
+        : <Path
+          onclick='pathClick'
           key={i.id}
           bgcolor={'red'}>{i.test_name}</Path>
     }
   )
 
   return (
+
     userList
   )
 

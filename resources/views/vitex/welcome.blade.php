@@ -11,6 +11,8 @@
 
 @section('content')
 
+<!--  --><?//=$test;?>
+
   <div class="banner gloves">
     <div class="banner__text">
       <div class="banner__container right">
@@ -101,6 +103,10 @@
       <div class="step">Вы принимаете товар. Подписываете документы. Отправляете их нам</div>
     </div>
   </div>
+
+
+
+
 
 
   <!--			<h2>Оптимальный ассортимент</h2>-->
