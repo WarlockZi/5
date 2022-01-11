@@ -33,9 +33,8 @@ Route::prefix('v1')->group(function () {
 	});
 
 	Route::get('/tests-tree', function () {
-		$tests = Test::with('test')
-
-			->get();
+//		$tests = Test::with('test')
+		$tests = Test::all();
 		return response()->json($tests);
 	});
 

@@ -15,8 +15,8 @@ use App\Models\Test;
 */
 
 Route::get('/', function () {
-//	$test = Test::with('test')->get();
-	$test = null;
+	$test = Test::with('test')->get();
+//	$test = null;
     return view('vitex.welcome')->with(['test'=>$test]);
 })->name('welcome');
 

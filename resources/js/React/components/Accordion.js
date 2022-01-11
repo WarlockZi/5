@@ -58,9 +58,15 @@ export default function Accordion(props) {
 
 
   const fetchData = async () => {
-    let url = 'http://localhost:8000/api/v1/tests-tree';
-    const res = await window.axios.get(url)
+    var time = performance.now();
+    const res = await window.axios.get('http://localhost:8000/api/v1/tests-tree')
+    time = performance.now() - time;
+    console.log('Время выполнения api = ', time);
+
+    time = performance.now();
     await setTests(res.data)
+    time = performance.now() - time;
+    console.log('Время выполнения setApi = ', time);
 
 
   }
