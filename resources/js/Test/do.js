@@ -32,6 +32,7 @@ $('#next').on('click', _test.nextQ)
 /////////////////////////////////////////////////////////////////////////////
 
 // если это результат теста, деактивирукм кнопку Закончить тест
+
 if (window.location.pathname.match(/result/)){
 let button = $('.test-do__finish-btn').el[0]
     button.classList.add('inactive')

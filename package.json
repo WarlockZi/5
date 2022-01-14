@@ -23,7 +23,7 @@
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "react-refresh": "^0.11.0",
-        "resolve-url-loader": "^4.0.0",
+        "resolve-url-loader": "^2.3.2",
         "sass": "^1.32.11",
         "sass-loader": "^11.0.1",
         "webpack-livereload-plugin": "^1.2.0"
@@ -32,6 +32,7 @@
         "@emotion/react": "^11.7.1",
         "@emotion/styled": "^11.6.0",
         "@mui/icons-material": "^5.2.5",
+        "@mui/lab": "^5.0.0-alpha.64",
         "@mui/material": "^5.2.7",
         "react-router-dom": "^6.2.1",
         "styled-components": "^5.3.3"

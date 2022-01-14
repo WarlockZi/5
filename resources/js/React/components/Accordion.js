@@ -5,24 +5,23 @@ import NoSsr from '@mui/base/NoSsr';
 
 export default function Accordion(props) {
 
-  const Test = (props) => {
-
+  let Test = (props) => {
     return (
-      <div data-level={props.ind}></div>
+      <div data-test data-level={props.ind}>
+        {props.test.test_name}
+      </div>
     )
   }
 
-  const StyledTest = styled.div`
-  ${palette}
-  ${spacing}
-  font-size: .8rem;
-  border: blue 1px solid;
-  color:white;
-  padding:10px;
-  max-width:300px;
-`
-  ;
-  const Path = styled.div`
+  let Path = (props) => {
+    return (
+      <div data-path data-level={props.ind}>
+        {props.test.test_name}
+      </div>
+    )
+  }
+
+  Test = styled.div`
   ${palette}
   ${spacing}
   font-size: .8rem;
@@ -32,62 +31,58 @@ export default function Accordion(props) {
   max-width:300px;
 `;
 
-
-  const pathClick = (e) => {
-    let parent = e.target.parentNode.tagName
-    alert(parent)
-  }
+  Path = styled.div`
+  ${palette}
+  ${spacing}
+  font-size: .8rem;
+  border: blue 1px solid;
+  color:white;
+  padding:10px;
+  max-width:300px;
+`;
 
   const [tests, setTests] = useState([]);
-  const [api, setApi] = useState([]);
-
-  const apiFetch = async () => {
-
-    const res = await window.axios.get('https://jsonplaceholder.typicode.com/posts')
-    await setTests(res.data.json())
-    console.log(res.data.json())
-
-    // fetch('https://jsonplaceholder.typicode.com/posts')
-    //   .then(response => response.json())
-    //   .then(
-    //     json => {
-    //       setApi(json)
-    //     }
-    //   )
-  }
-
 
   const fetchData = async () => {
     var time = performance.now();
     const res = await window.axios.get('http://localhost:8000/api/v1/tests-tree')
     time = performance.now() - time;
     console.log('Время выполнения api = ', time);
-
     time = performance.now();
+
     await setTests(res.data)
     time = performance.now() - time;
     console.log('Время выполнения setApi = ', time);
-
-
   }
   useEffect(() => {
     fetchData()
-    apiFetch()
   }, [])
 
-  const userList = tests.map((i, ind) => {
+  const testTree = tests.map((i, ind) => {
       return i.isTest
-        ? <Test key={i.id} bgcolor={'blue'} ind={ind}>{i.test_name}</Test>
+        ? <Test
+          key={i.id}
+          bgcolor={'blue'}
+          ind={ind}
+          test={i}
+        >
+          {i.test_name}
+        </Test>
         : <Path
           onclick='pathClick'
           key={i.id}
-          bgcolor={'red'}>{i.test_name}</Path>
+          bgcolor={'red'}>
+          {i.test_name}
+        </Path>
     }
   )
 
-  return (
 
-    userList
+  return (
+    <div style={{'width': '250px'}}>
+      {testTree}
+    </div>
+
   )
 
 }
