@@ -1,38 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Link, Outlet, Route, Routes, useLocation} from "react-router-dom/index";
-import Statistics from "./Statistics";
+// import AccordionList from './components/AccordionList'
 
-import { TextField,Autocomplete,Button} from '@mui/material';
-import Accordion from './components/Accordion'
-import AccordionList from './components/AccordionList'
+import {TextField, Autocomplete, Button} from '@mui/material';
 
-export default  function App() {
+import Nav from "./components/Nav";
+import Statistics from "./components/Statistics";
+import Home from "./components/Home";
+import Acc from "./components/Acc";
 
-  const options = [
-    { label: 'The Godfather', id: 1 },
-    { label: 'Pulp Fiction', id: 2 },
-  ];
-
-
+export default function App() {
   return (
     <>
-
       <Nav/>
-      <Button variant="contained">Hello World</Button>
+
       {/*<AccordionList/>*/}
-            
 
-
-      <Accordion/>
-
-      <Autocomplete
-        disablePortal
-        id="combo-box-demo"
-        options={options}
-        sx={{ m: 2, width: 300 }}
-        renderInput={(params) => <TextField {...params} label="Movie" />}
-      />
+      {/*<Accordion/>*/}
 
       <Routes>
         <Route path="admin" element={<Admin/>}>
@@ -42,6 +27,7 @@ export default  function App() {
             <Route path="test/" element={<Test/>}/>
             <Route path="edit" element={<TestEdit/>}/>
           </Route>
+          <Route path="acc" element={<Acc/>}/>
         </Route>
       </Routes>
     </>
@@ -49,43 +35,9 @@ export default  function App() {
 }
 
 
-const Nav = () => {
-  const {pathname} = useLocation();
-
-  const nav = {
-    color: 'white',
-    padding: '10px',
-    background: 'grey',
-    display: 'flex'
-  }
-  const a = {
-    color: 'white',
-    padding: '10px'
-  }
-  const content = {
-    color: 'grey',
-    padding: '10px'
-  }
-
-  return (
-    <>
-      <div style={nav}>
-        <a href="/" style={a}> На сайт </a>
-        <Link style={a} to='/admin'> Admin </Link>
-        <Link style={a} to='/admin/statistics'> Stat </Link>
-        <Link style={a} to='/admin/home'> home </Link>
-        <Link style={a} to='/admin/test'> test </Link>
-      </div>
-
-      <div style={content}>Текущий url: {pathname}</div>
-
-    </>
-  )
-}
-
 const TestEdit = () => {
   return (
-      <div>test edit</div>
+    <div>test edit</div>
   )
 }
 
@@ -105,19 +57,19 @@ const Test = () => {
 
 const Admin = () => {
   return (
-      <Outlet/>
+    <Outlet/>
   )
 }
 
-const Home = () => {
-  const stat = {
-    color: 'red',
-    padding: '10px'
-  }
-  return (
-    <div style={stat}>HOme Полюся пупся</div>
-  )
-}
+// const Home = () => {
+//   const stat = {
+//     color: 'red',
+//     padding: '10px'
+//   }
+//   return (
+//     <div style={stat}>HOme Полюся пупся</div>
+//   )
+// }
 
 
 if (document.getElementById('root')) {

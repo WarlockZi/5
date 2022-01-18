@@ -22,12 +22,12 @@ mix
 // это для source-map
 if ( ! mix.inProduction()) {
   mix.webpackConfig({
-    devtool: 'inline-source-map'
+    devtool: 'source-map'
   })
 }
 
 
-mix.browserSync({
-  proxy: 'localhost:8000'
-});
+// mix.browserSync({
+//   proxy: 'localhost:8000'
+// });
 

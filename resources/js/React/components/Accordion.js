@@ -1,13 +1,19 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import {palette, spacing} from '@mui/system';
-import NoSsr from '@mui/base/NoSsr';
 
 export default function Accordion(props) {
 
+  const Load = () => {
+    const centered = 'display:flex; alignItems:center;'
+    return (<div className={centered}>Loading...</div>)
+  }
+  const [loading, setLoading] = useState(true)
+
+
   let Test = (props) => {
     return (
-      <div data-test data-level={props.ind}>
+      <div dataTest data-level={props.ind}>
         {props.test.test_name}
       </div>
     )
@@ -15,7 +21,7 @@ export default function Accordion(props) {
 
   let Path = (props) => {
     return (
-      <div data-path data-level={props.ind}>
+      <div dataPath data-level={props.ind}>
         {props.test.test_name}
       </div>
     )
@@ -25,7 +31,7 @@ export default function Accordion(props) {
   ${palette}
   ${spacing}
   font-size: .8rem;
-  border: blue 1px solid;
+  border: red 1px solid;
   color:white;
   padding:10px;
   max-width:300px;
@@ -44,16 +50,11 @@ export default function Accordion(props) {
   const [tests, setTests] = useState([]);
 
   const fetchData = async () => {
-    var time = performance.now();
     const res = await window.axios.get('http://localhost:8000/api/v1/tests-tree')
-    time = performance.now() - time;
-    console.log('Время выполнения api = ', time);
-    time = performance.now();
-
     await setTests(res.data)
-    time = performance.now() - time;
-    console.log('Время выполнения setApi = ', time);
+    setLoading(false)
   }
+
   useEffect(() => {
     fetchData()
   }, [])
@@ -78,12 +79,10 @@ export default function Accordion(props) {
   )
 
 
-  return (
-    <div style={{'width': '250px'}}>
+  return (loading ? <Load/> : (<div style={{'width': '250px'}}>
       {testTree}
     </div>
-
-  )
+  ))
 
 }
 
