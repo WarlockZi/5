@@ -1,19 +1,22 @@
 import React, {useEffect, useState} from 'react';
+import './Accordion.scss'
 import styled from 'styled-components';
 import {palette, spacing} from '@mui/system';
+
+
 
 export default function Accordion(props) {
 
   const Load = () => {
-    const centered = 'display:flex; alignItems:center;'
-    return (<div className={centered}>Loading...</div>)
+
+    return (<div className='centered' >Loading...</div>)
   }
   const [loading, setLoading] = useState(true)
 
 
   let Test = (props) => {
     return (
-      <div dataTest data-level={props.ind}>
+      <div data-level={props.ind}>
         {props.test.test_name}
       </div>
     )
@@ -21,31 +24,13 @@ export default function Accordion(props) {
 
   let Path = (props) => {
     return (
-      <div dataPath data-level={props.ind}>
-        {props.test.test_name}
+      <div data-level={props.ind}>
+        {props.test?.test_name}
       </div>
     )
   }
 
-  Test = styled.div`
-  ${palette}
-  ${spacing}
-  font-size: .8rem;
-  border: red 1px solid;
-  color:white;
-  padding:10px;
-  max-width:300px;
-`;
 
-  Path = styled.div`
-  ${palette}
-  ${spacing}
-  font-size: .8rem;
-  border: blue 1px solid;
-  color:white;
-  padding:10px;
-  max-width:300px;
-`;
 
   const [tests, setTests] = useState([]);
 
@@ -60,6 +45,7 @@ export default function Accordion(props) {
   }, [])
 
   const testTree = tests.map((i, ind) => {
+    // debugger
       return i.isTest
         ? <Test
           key={i.id}
@@ -79,10 +65,10 @@ export default function Accordion(props) {
   )
 
 
-  return (loading ? <Load/> : (<div style={{'width': '250px'}}>
-      {testTree}
-    </div>
-  ))
+  return (loading
+        ? <Load/>
+        : (<div style={{'width': '250px'}}>{testTree}</div>)
+        )
 
 }
 

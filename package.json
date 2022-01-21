@@ -34,6 +34,7 @@
         "@mui/icons-material": "^5.2.5",
         "@mui/lab": "^5.0.0-alpha.64",
         "@mui/material": "^5.2.7",
+        "babel-plugin-react-css-modules": "^5.2.6",
         "react-router-dom": "^6.2.1",
         "styled-components": "^5.3.3"
     },

@@ -28963,7 +28963,7 @@ function Accordion(props) {
 
   var Test = function Test(props) {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      "data-test": true,
+      dataTest: true,
       "data-level": props.ind,
       children: props.test.test_name
     });
@@ -28971,13 +28971,13 @@ function Accordion(props) {
 
   var Path = function Path(props) {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      "data-path": true,
+      dataPath: true,
       "data-level": props.ind,
       children: props.test.test_name
     });
   };
 
-  Test = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  ", "\n  ", "\n  font-size: .8rem;\n  border: green 1px solid;\n  color:white;\n  padding:10px;\n  max-width:300px;\n"])), _mui_system__WEBPACK_IMPORTED_MODULE_4__["default"], _mui_system__WEBPACK_IMPORTED_MODULE_5__["default"]);
+  Test = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  ", "\n  ", "\n  font-size: .8rem;\n  border: red 1px solid;\n  color:white;\n  padding:10px;\n  max-width:300px;\n"])), _mui_system__WEBPACK_IMPORTED_MODULE_4__["default"], _mui_system__WEBPACK_IMPORTED_MODULE_5__["default"]);
   Path = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  ", "\n  ", "\n  font-size: .8rem;\n  border: blue 1px solid;\n  color:white;\n  padding:10px;\n  max-width:300px;\n"])), _mui_system__WEBPACK_IMPORTED_MODULE_4__["default"], _mui_system__WEBPACK_IMPORTED_MODULE_5__["default"]);
 
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
@@ -28987,29 +28987,23 @@ function Accordion(props) {
 
   var fetchData = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-      var time, res;
+      var res;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              time = performance.now();
-              _context.next = 3;
+              _context.next = 2;
               return window.axios.get('http://localhost:8000/api/v1/tests-tree');
 
-            case 3:
+            case 2:
               res = _context.sent;
-              time = performance.now() - time;
-              console.log('Время выполнения api = ', time);
-              time = performance.now();
-              _context.next = 9;
+              _context.next = 5;
               return setTests(res.data);
 
-            case 9:
-              time = performance.now() - time;
-              console.log('Время выполнения setApi = ', time);
+            case 5:
               setLoading(false);
 
-            case 12:
+            case 6:
             case "end":
               return _context.stop();
           }

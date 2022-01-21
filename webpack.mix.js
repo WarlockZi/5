@@ -8,16 +8,12 @@ mix
 
   .react()
 
-  .sass('resources/sass/app.scss',
-    'public',{
-    })
-  .sass('resources/sass/react.scss',
-  'public',{
-  })
-  .sass('resources/sass/auth.scss',
-    'public',{
-    })
+  .sass('resources/sass/app.scss', 'public')
+  .sass('resources/sass/react.scss', 'public')
+  .sass('resources/sass/auth.scss','public')
+
   .sourceMaps()
+  // .browserSync('localhost:8000')
 
 // это для source-map
 if ( ! mix.inProduction()) {
@@ -27,7 +23,7 @@ if ( ! mix.inProduction()) {
 }
 
 
-// mix.browserSync({
-//   proxy: 'localhost:8000'
-// });
+mix.browserSync({
+  proxy: 'localhost:8000'
+});
 
