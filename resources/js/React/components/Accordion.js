@@ -8,9 +8,9 @@ import {palette, spacing} from '@mui/system';
 export default function Accordion(props) {
 
   const Load = () => {
-
     return (<div className='centered' >Loading...</div>)
   }
+
   const [loading, setLoading] = useState(true)
 
 
